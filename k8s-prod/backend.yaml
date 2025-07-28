@@ -23,19 +23,14 @@ spec:
             - containerPort: 5000
           env:
             - name: DB_HOST
-              value: mysql
+              value: database-1.chq2k6qs0ud6.us-east-1.rds.amazonaws.com
             - name: DB_USER
-              value: root
+              value: admin
             - name: DB_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: mysql-secret
-                  key: MYSQL_ROOT_PASSWORD
+              value: admin123
             - name: DB_NAME
-              valueFrom:
-                configMapKeyRef:
-                  name: mysql-config
-                  key: MYSQL_DATABASE
+              value: crud_app
+
 ---
 apiVersion: v1
 kind: Service
